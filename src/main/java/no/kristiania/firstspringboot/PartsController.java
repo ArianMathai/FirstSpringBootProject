@@ -19,6 +19,11 @@ public class PartsController {
 
     @GetMapping()
     public ResponseEntity<List<Part>> getParts(){
+        //var bigPart = BigPart.builder()  // this is lombok way of building an object;
+        //        .partName("chickPart{")
+        //        .partNumber(1)
+        //        .numberOfChickens(2)
+        //        .build();
         return ResponseEntity.ok(partsService.getParts());
     }
     @PostMapping()
@@ -33,6 +38,6 @@ public class PartsController {
     public void modifyPart(@PathVariable String name, @RequestBody Part part){
         partsService.modifyPart(name, part);
     }
-
+    
 
 }
