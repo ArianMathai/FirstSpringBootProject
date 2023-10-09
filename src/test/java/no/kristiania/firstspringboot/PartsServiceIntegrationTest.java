@@ -30,7 +30,7 @@ public class PartsServiceIntegrationTest {
         mockMvc.perform(get("/api/parts"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().string(containsString("cog")));
+                .andExpect(content().string(containsString("gear")));
     }
     @Test
     void shouldDeletePart() throws Exception {
