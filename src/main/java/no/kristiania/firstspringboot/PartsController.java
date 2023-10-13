@@ -2,6 +2,7 @@ package no.kristiania.firstspringboot;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,9 @@ public class PartsController {
     @Autowired
     private PartsService partsService;
 
+    @Value("${Arian.bestFriend}")
+    private String bestFriend;
+
     @GetMapping()
     public ResponseEntity<List<Part>> getParts(){
         //var bigPart = BigPart.builder()  // this is lombok way of building an object;
@@ -24,6 +28,7 @@ public class PartsController {
         //        .partNumber(1)
         //        .numberOfChickens(2)
         //        .build();
+        System.out.println(bestFriend);
         return ResponseEntity.ok(partsService.getParts());
     }
     @PostMapping()

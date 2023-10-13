@@ -23,7 +23,7 @@ public class PartsUnitTest {
     void shouldRetrieveValueFromRepo(){
         PartsRepository partsRepository = new PartsRepository();
 
-        assertThat(partsRepository.getParts().size()).isEqualTo(3);
+        assertThat(partsRepository.getPartsList().size()).isEqualTo(3);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class PartsUnitTest {
         PartsRepository partsRepository = new PartsRepository();
 
         partsRepository.addParts(new Part("loyd"));
-        assertThat(partsRepository.getParts().size()).isEqualTo(4);
+        assertThat(partsRepository.getPartsList().size()).isEqualTo(4);
     }
 
     @Test
@@ -39,13 +39,13 @@ public class PartsUnitTest {
 
         ArrayList<Part> partsList = new ArrayList<>(List.of(new Part("pogo")));
 
-        when(partsRepository.getParts()).thenReturn(partsList);
+        when(partsRepository.getPartsList()).thenReturn(partsList);
     }
     @Test
     void deletingPartShouldDecreaseArraySize(){
         PartsRepository pr = new PartsRepository();
 
         pr.deletePart(new Part("cog"));
-        assertThat(pr.getParts().size()).isEqualTo(2);
+        assertThat(pr.getPartsList().size()).isEqualTo(2);
     }
 }

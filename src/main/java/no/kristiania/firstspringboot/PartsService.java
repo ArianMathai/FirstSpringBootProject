@@ -17,7 +17,7 @@ public class PartsService {
     }
 
     public List<Part> getParts(){
-        return partsRepository.getParts();
+        return partsRepository.getPartsList();
     }
 
     public void addPart(Part part){
